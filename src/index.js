@@ -39,16 +39,22 @@ const isClosed = (today, days) => {
 
 const messages = {
     canTrade: 'TAK!',
-    noTrading: 'NIE'
+    noTrading: 'NIE',
+    notSunday: 'DZISIAJ NIE MA NIEDZIELI'
 };
 
 const messageHTML = document.getElementsByClassName('msg')[0];
 
 (function init() {
-    if (isClosed(today, closedSundays)) {
-        messageHTML.innerText = messages.noTrading
+    if (!today.day() == 0) {
+        messageHTML.innerText = messages.notSunday;
+
     } else {
-        messageHTML.innerText = messages.canTrade
+        if (isClosed(today, closedSundays)) {
+            messageHTML.innerText = messages.noTrading;
+        } else {
+            messageHTML.innerText = messages.canTrade;
+        }
     }
 
     console.log('%c jebać PiS', 'color: #ff0000');

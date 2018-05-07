@@ -16,4 +16,6 @@ body, html {
     font-size: 100px;
     font-weight: bold;
     letter-spacing: 0.1em;
+    text-align: center;
+    display: block;
 }
